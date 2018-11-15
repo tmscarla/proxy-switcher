@@ -29,6 +29,8 @@ Among forwarding proxies, is possible to differentiate them according to the deg
 * *Anonymous:* notify that the proxy is used, but it does not convey the real IP address of the user
 * *Elite:* is not notify that a proxy was used and do not convey the real IP address of the user
 
+What type they are basically just comes down to which HTTP Headers they include about who you are.
+
 ### Squid Proxy
 Squid is a caching proxy for the Web supporting HTTP, HTTPS, FTP, and more. It reduces bandwidth and improves response times by caching and reusing frequently-requested web pages.  Squid has extensive access  controls and makes a great server accelerator. It runs on most available operating systems, including Windows and is licensed under the GNU GPL.
 
