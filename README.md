@@ -9,7 +9,7 @@ Basic usage examples are available in the file *example.py*. Once you have set a
 
 ```python
 pm = ProxyManager(PROXY_LIST, PORT_LIST)
-pm.setproxy(mode='rr')
+pm.setproxy(mode='round')
 ```
 
 ## Intro
