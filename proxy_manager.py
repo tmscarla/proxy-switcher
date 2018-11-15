@@ -27,24 +27,28 @@ class ProxyManager(object):
     def __str__(self):
         return 'Proxies: ' + str(self.proxy_list)
 
-    def set_proxy(self, mode='rr', verbose=True):
+    def set_proxy(self, proxy_pos=None, mode='rr', verbose=True):
         """
         Set environment variables for HTTP and HTTPS proxies using a provided proxy list.
+        :param proxy_pos: explicitly set the proxy in the specified position of the list.
         :param mode: ['rand', 'rr'] if rand choses randomly a proxy from the list.
                      If 'rr' (round robin) selects iteratively each proxy from the list.
-        :param protocol: ['http', 'https']
         :param verbose: add verbosity
         """
-        if mode is 'rr':
-            proxy = self.proxy_list[self.current]
-            port = self.proxy_ports[self.current]
-
-            self.current += 1
-            if self.current % self.n_proxy is 0: self.current = 0
+        if proxy_pos is not None and int(proxy_pos) > 0 and int(proxy_pos) < len(self.proxy_list):
+            proxy = self.proxy_list[proxy_pos]
+            port = self.proxy_ports[proxy_pos]
         else:
-            idx = np.random.randint(self.n_proxy)
-            proxy = self.proxy_list[idx]
-            port = self.proxy_ports[idx]
+            if mode is 'rr':
+                proxy = self.proxy_list[self.current]
+                port = self.proxy_ports[self.current]
+
+                self.current += 1
+                if self.current % self.n_proxy is 0: self.current = 0
+            else:
+                idx = np.random.randint(self.n_proxy)
+                proxy = self.proxy_list[idx]
+                port = self.proxy_ports[idx]
 
         os.environ['HTTP_PROXY'] = 'http://' + str(proxy) + ':' + str(port)
         os.environ['HTTPS_PROXY'] = 'https://' + str(proxy) + ':' + str(port)
