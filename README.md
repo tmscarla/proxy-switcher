@@ -36,6 +36,8 @@ Squid is a caching proxy for the Web supporting HTTP, HTTPS, FTP, and more. It r
 ## Proxy list setup 
 In the following lines we will see how to install and configure Squid on a set of Linux machines in order to create our personal proxy list. I used Microsoft Azure to create a set of Ubuntu instances organized in a master-slaves architecture. One node is the master, and is in charge of performing all the business logic of our program, including sending http requests. The remaining nodes are proxies (slaves) which forward the requests of the master and return back responses.
 
+<p align="center"><img height=400px src="https://github.com/tmscarla/proxy-switcher/blob/master/img/proxy_diagram.png"></p>
+
 Installing Squid is easy, we just need to run this command on the terminal:
 
 ```bash
