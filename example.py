@@ -1,16 +1,19 @@
 from proxy_manager import ProxyManager
 from definitions import PROXY_LIST, PORT_LIST
 from proxy_list_generator import *
+from json.decoder import JSONDecodeError
 import requests
 import time
 
 
 def foo():
-    start = time.time()
-    json = requests.get('http://ip-api.com/json').json()
-    ip = json['query']
-
-    print('Foo completed by %s in %3f seconds!' % ip, (time.time() - start))
+    try:
+        start = time.time()
+        json = requests.get('http://ip-api.com/json').json()
+        ip = json['query']
+        print('Foo completed by %s in %.3f seconds!\n' % (ip, (time.time() - start)))
+    except JSONDecodeError:
+        print('Foo not completed. Decoding JSON has failed.\n')
 
 
 def personal_proxy_example(n_req=10):

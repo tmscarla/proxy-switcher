@@ -27,19 +27,19 @@ class ProxyManager(object):
     def __str__(self):
         return 'Proxies: ' + str(self.proxy_list)
 
-    def set_proxy(self, proxy_pos=None, mode='rr', verbose=True):
+    def set_proxy(self, proxy_pos=None, mode='round', verbose=True):
         """
         Set environment variables for HTTP and HTTPS proxies using a provided proxy list.
         :param proxy_pos: explicitly set the proxy in the specified position of the list.
-        :param mode: ['rand', 'rr'] if rand choses randomly a proxy from the list.
-                     If 'rr' (round robin) selects iteratively each proxy from the list.
+        :param mode: ['rand', 'round'] if rand choses randomly a proxy from the list.
+                     If 'round' selects iteratively each proxy from the list in a round-robin fashion.
         :param verbose: add verbosity
         """
         if proxy_pos is not None and int(proxy_pos) > 0 and int(proxy_pos) < len(self.proxy_list):
             proxy = self.proxy_list[proxy_pos]
             port = self.proxy_ports[proxy_pos]
         else:
-            if mode is 'rr':
+            if mode is 'round':
                 proxy = self.proxy_list[self.current]
                 port = self.proxy_ports[self.current]
 
