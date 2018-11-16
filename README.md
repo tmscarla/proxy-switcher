@@ -11,6 +11,10 @@ Basic usage examples are available in the file *example.py*. Once you have set a
 pm = ProxyManager(PROXY_LIST, PORT_LIST)
 pm.setproxy(mode='round')
 ```
+It basically sets environment variables for both http and https proxies. There are three ways to select a proxy from the list:
+* Select a specific proxy in the list providing its position
+* Select proxies iteratively in a round-robin fashion
+* Select proxies randomly from the list
 
 ## Intro
 
