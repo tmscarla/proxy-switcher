@@ -25,7 +25,7 @@ According to Wikipedia, proxy server is a server that acts as an intermediary fo
 * **Forward proxy:** is an Internet-facing proxy used to retrieve from a wide range of sources
 * **Reverse proxy:** is usually an internal-facing proxy used as a front-end to control and protect access to a server on a private network. A reverse proxy commonly also performs tasks such as load-balancing, authentication, decryption or caching.
 
-<p align="center"><img src="https://deepwebitalia.com/wp-content/uploads/2016/11/proxy.png" height=150px></p>
+<p align="center"><img src="https://www.drupal.org/files/project-images/proxy.png" height=200px></p>
 
 Among forwarding proxies, is possible to differentiate them according to the degrees of anonymity that they offer:
 
